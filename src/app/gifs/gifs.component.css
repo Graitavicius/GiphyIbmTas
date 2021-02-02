@@ -1,0 +1,30 @@
+.gifs {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.gif img {
+  max-width: 250px;
+  height: 250px;
+  margin: 6px;
+}
+
+.expandedGif {
+  text-align: center;
+}
+
+.clicked {
+  width: 500px;
+  height: 500px;
+}
+
+.button {
+  width: 500px;
+  background-color: #4b2980;
+  outline: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 0;
+}
