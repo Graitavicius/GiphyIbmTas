@@ -20,7 +20,6 @@ export class GifsComponent implements OnInit, OnDestroy {
     this.gifSubscription = this.dataService.getGifsAsObservable()
       .subscribe((res: any) => {
         this.gifs = res;
-        console.log(res);
       });
   }
 
@@ -31,6 +30,19 @@ export class GifsComponent implements OnInit, OnDestroy {
   expandGif(index) {
     this.clicked = !this.clicked;
     this.currentIndex = index;
+  }
+
+  closeGif() {
+    this.clicked = !this.clicked;
+  }
+
+  scroll() {
+    this.dataService.scrollTrendingPage();
+    this.dataService.getGifs();
+  }
+
+  scrollSearchedGifs() {
+    this.dataService.scrollSearchPage();
   }
 
 }
