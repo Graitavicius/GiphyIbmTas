@@ -1,9 +1,12 @@
-<div class="scroll-gifs" (mousewheel)="scroll()">
-  <div *ngIf="!clicked">
-    <div class="gifs">
-        <div class="gif" *ngFor="let gif of gifs; let i=index">
-          <img (click)="expandGif(i)" [src]="gif.images.downsized.url" alt="gif">
-        </div>
+<div>
+  <div class="scroll-gifs"
+      (mousewheel)="scroll()">
+    <div *ngIf="!clicked">
+      <div class="gifs">
+          <div class="gif" *ngFor="let gif of gifs; let i=index">
+            <img (click)="expandGif(i)" [src]="gif.images.downsized.url" alt="gif">
+          </div>
+      </div>
     </div>
   </div>
 
@@ -14,5 +17,3 @@
     </div>
   </div>
 </div>
-
-

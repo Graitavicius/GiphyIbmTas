@@ -1,6 +1,8 @@
+import { SearchComponent } from './../search/search.component';
 import { DataService } from './../data.service';
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Subscription } from 'rxjs';
+import * as scroll from '../search/search.component';
 
 @Component({
   selector: 'app-gifs',
@@ -8,11 +10,11 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./gifs.component.css']
 })
 export class GifsComponent implements OnInit, OnDestroy {
-
   clicked = false;
   gifs: any[] = [];
   gifSubscription: Subscription;
   currentIndex;
+  gifName = '';
   constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -37,12 +39,12 @@ export class GifsComponent implements OnInit, OnDestroy {
   }
 
   scroll() {
-    this.dataService.scrollTrendingPage();
-    this.dataService.getGifs();
+    this.gifName = this.dataService.gifName;
+    if (this.gifName == '') {
+      this.dataService.scrollTrendingPage();
+      this.dataService.getGifs();
+    } else {
+      this.dataService.scrollSearch();
+    }
   }
-
-  scrollSearchedGifs() {
-    this.dataService.scrollSearchPage();
-  }
-
 }
